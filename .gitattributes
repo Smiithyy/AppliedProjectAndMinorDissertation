@@ -1,0 +1,2 @@
+BanishmentProject/** filter=lfs diff=lfs merge=lfs -text
+Banishment(Packaged)/** filter=lfs diff=lfs merge=lfs -text
