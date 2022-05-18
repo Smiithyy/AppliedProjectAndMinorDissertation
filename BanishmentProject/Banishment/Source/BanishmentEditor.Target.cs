@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ffa49649b9ac69139f723d4dcad2d3e0d5ce4f950db102a8f8998b7777b91699
-size 390
+// Copyright Epic Games, Inc. All Rights Reserved.
+
+using UnrealBuildTool;
+using System.Collections.Generic;
+
+public class BanishmentEditorTarget : TargetRules
+{
+	public BanishmentEditorTarget(TargetInfo Target) : base(Target)
+	{
+		Type = TargetType.Editor;
+		DefaultBuildSettings = BuildSettingsVersion.V2;
+		ExtraModuleNames.Add("Banishment");
+	}
+}
