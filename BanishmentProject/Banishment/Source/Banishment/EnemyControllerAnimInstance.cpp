@@ -1,3 +1,36 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bc3fa3b2d8cfa217c073b2216cf5a5aad8eabe104b2b9e26d2b190dfb96644c9
-size 757
+// Fill out your copyright notice in the Description page of Project Settings.
+
+
+#include "EnemyControllerAnimInstance.h"
+#include "EnemyController.h"
+
+void UEnemyControllerAnimInstance::NativeInitializeAnimation()
+{
+	if (Pawn == nullptr)
+	{
+		Pawn = TryGetPawnOwner();
+		if (Pawn)
+		{
+			EnemyController = Cast<AEnemyController>(Pawn);
+		}
+	}
+}
+
+void UEnemyControllerAnimInstance::UpdateAnimationProperties()
+{
+	if (Pawn == nullptr)
+	{
+		Pawn = TryGetPawnOwner();
+		if (Pawn)
+		{			
+			EnemyController = Cast<AEnemyController>(Pawn);
+		}
+	}
+
+	if (Pawn)
+	{
+		FVector Speed = Pawn->GetVelocity(); // Return pawn velocity
+		FVector LateralSpeed = FVector(Speed.X, Speed.Y, 0.f);
+		MovementSpeed = LateralSpeed.Size();
+	}
+}

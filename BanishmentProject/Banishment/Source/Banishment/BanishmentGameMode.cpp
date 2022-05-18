@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:87928a7377c8c738b6ec2856b69e0ffe5341e9523d4e81a866a57c3a8b6cfc08
-size 499
+// Copyright Epic Games, Inc. All Rights Reserved.
+
+#include "BanishmentGameMode.h"
+#include "BanishmentCharacter.h"
+#include "UObject/ConstructorHelpers.h"
+
+ABanishmentGameMode::ABanishmentGameMode()
+{
+	// set default pawn class to our Blueprinted character
+	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(
+		TEXT("/Game/ThirdPersonCPP/Blueprints/ThirdPersonCharacter"));
+	if (PlayerPawnBPClass.Class != NULL)
+	{
+		DefaultPawnClass = PlayerPawnBPClass.Class;
+	}
+}

@@ -1,3 +1,35 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:776f8a35533fa024250e8386a4844ec6b3181bae7945175e71d8f13e22f19c7b
-size 885
+// Fill out your copyright notice in the Description page of Project Settings.
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "Animation/AnimInstance.h"
+#include "PlayerCharacterAnimInstance.generated.h"
+
+/**
+ * 
+ */
+UCLASS()
+class BANISHMENT_API UPlayerCharacterAnimInstance : public UAnimInstance
+{
+	GENERATED_BODY()
+public:
+
+	virtual void NativeInitializeAnimation() override;
+
+	UFUNCTION(BlueprintCallable, Category = AnimationProperties)
+	void UpdateAnimationProperties();
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Movement)
+	float MovementSpeed;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Movement)
+	bool bIsInAir;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Movement)
+	class APawn* Pawn;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Movement)
+	class APlayerCharacter* PlayerCharacter;
+	
+};

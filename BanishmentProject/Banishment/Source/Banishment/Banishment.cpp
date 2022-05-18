@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b318b5112c53bc17e5ce05359120850967fc2b6a9bb8568ca38c69eede350d24
-size 199
+// Copyright Epic Games, Inc. All Rights Reserved.
+
+#include "Banishment.h"
+#include "Modules/ModuleManager.h"
+
+IMPLEMENT_PRIMARY_GAME_MODULE(FDefaultGameModuleImpl, Banishment, "Banishment");

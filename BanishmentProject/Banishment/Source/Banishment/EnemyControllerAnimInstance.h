@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5e94c2b311602f4727ccefc86aae74e1812bbc995418c30f6a3815c31fa863bb
-size 804
+// Fill out your copyright notice in the Description page of Project Settings.
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "Animation/AnimInstance.h"
+#include "EnemyControllerAnimInstance.generated.h"
+
+/**
+ * 
+ */
+UCLASS()
+class BANISHMENT_API UEnemyControllerAnimInstance : public UAnimInstance
+{
+	GENERATED_BODY()
+public:
+	
+	virtual void NativeInitializeAnimation() override;
+
+	UFUNCTION(BlueprintCallable, Category = AnimationProperties)
+	void UpdateAnimationProperties();
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Movement)
+	float MovementSpeed;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Movement)
+	class APawn* Pawn;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Movement)
+	class AEnemyController* EnemyController;
+	
+	
+};

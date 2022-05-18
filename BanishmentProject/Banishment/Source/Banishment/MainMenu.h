@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d327127c3b0cb826168c15a589d8c7c6a736dbf621fd210df176df2eb8eb8cab
-size 309
+// Fill out your copyright notice in the Description page of Project Settings.
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "GameFramework/GameModeBase.h"
+#include "MainMenu.generated.h"
+
+/**
+ * 
+ */
+UCLASS()
+class BANISHMENT_API AMainMenu : public AGameModeBase
+{
+	GENERATED_BODY()
+	
+};

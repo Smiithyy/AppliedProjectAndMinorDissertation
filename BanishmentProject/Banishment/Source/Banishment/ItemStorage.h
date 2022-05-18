@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5b233185f9a83135e35c95a6afe083a69f389e454ff896d1c834beb2741fc698
-size 591
+// Fill out your copyright notice in the Description page of Project Settings.
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "GameFramework/Actor.h"
+#include "ItemStorage.generated.h"
+
+UCLASS()
+class BANISHMENT_API AItemStorage : public AActor
+{
+	GENERATED_BODY()
+	
+public:	
+	// Sets default values for this actor's properties
+	AItemStorage();
+
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
+public:	
+
+	UPROPERTY(EditDefaultsOnly, Category = "SaveData")
+	TMap<FString, TSubclassOf<class AWeapon>> WeaponMap;
+
+};

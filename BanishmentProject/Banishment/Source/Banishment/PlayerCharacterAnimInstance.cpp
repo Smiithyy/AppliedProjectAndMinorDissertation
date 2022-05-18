@@ -1,3 +1,43 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:afcd94c0f4111de53945bbc2aa9cb3e953de23ffc2087f35113c03c4b99a8402
-size 1020
+// Fill out your copyright notice in the Description page of Project Settings.
+
+
+#include "PlayerCharacterAnimInstance.h"
+#include "GameFramework/CharacterMovementComponent.h"
+#include "PlayerCharacter.h"
+
+void UPlayerCharacterAnimInstance::NativeInitializeAnimation()
+{
+	// Check if pawn is empty
+	if (Pawn == nullptr)
+	{
+		Pawn = TryGetPawnOwner(); // Get pawn from owner
+		if (Pawn)
+		{
+			PlayerCharacter = Cast<APlayerCharacter>(Pawn);
+		}
+	}
+}
+
+void UPlayerCharacterAnimInstance::UpdateAnimationProperties()
+{
+	// Check if pawn is empty
+	if (Pawn == nullptr)
+	{
+		Pawn = TryGetPawnOwner(); // Get pawn from owner
+	}
+
+	// If pawn is not empty
+	if (Pawn)
+	{
+		FVector Speed = Pawn->GetVelocity(); // Return pawn velocity
+		FVector LateralSpeed = FVector(Speed.X, Speed.Y, 0.f);
+		MovementSpeed = LateralSpeed.Size();
+
+		bIsInAir = Pawn->GetMovementComponent()->IsFalling();
+
+		if (PlayerCharacter == nullptr)
+		{
+			PlayerCharacter = Cast<APlayerCharacter>(Pawn);
+		}
+	}
+}
